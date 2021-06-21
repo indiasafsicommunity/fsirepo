@@ -1,0 +1,17 @@
+- Author : Kishor Kumar Jha , Associate Principal SA ,Red Hat
+- name: Ansible Playbook to Review User and Group Settings
+  hosts: all
+  tasks:
+    - name: Ensure Password Fields are Not Empty
+      shell: /bin/cat /etc/shadow | /bin/awk -F':' '($2 == "" ) { print $1 }'
+      register: result
+      changed_when: "result.stdout"
+
+    - name: Print the users having password set to empty.
+      debug:
+        msg: "{{result.stdout}}"
+
+    - name: Lock the users who do not have a password set, password field is 
+                blank.
+      shell: passwd -l "{{result.stdout}}"
+      when: result.stdout != ""
