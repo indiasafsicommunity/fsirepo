@@ -1,0 +1,20 @@
+---
+Author : Kishor Kumar Jha ,Associate Principal SA ,Red Hat
+- name: Playbook to configure mail transfer agent for local-only Mode
+  hosts: all
+  tasks:
+    - name: preflight check to ensure postfix package is installed on the system.
+      yum:
+        name: postfix
+        state: present
+
+    - name: Edit /etc/postfix/main.cf file to set inet_interface to localhost
+      lineinfile:
+        path: /etc/selinux/config
+        regexp: '^inet_interfaces ='
+        line: inet_interfaces = localhost
+      notify:
+        - restart_postfix
+  handlers:
+     -name: restart postfix services
+      service: name=postfix state:restarted
