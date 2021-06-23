@@ -1,5 +1,5 @@
 ---
-Author : Kishor Kumar Jha ,Associate Principal SA ,Red Hat
+#Author : Kishor Kumar Jha ,Associate Principal SA ,Red Hat
 - name: Playbook to configure mail transfer agent for local-only Mode
   hosts: all
   tasks:
