@@ -2,6 +2,7 @@
 # Author : Kishor Kumar Jha , Associate Principal SA ,Red Hat
 - name: Example playbook to ensure Identified legacy services are disabled
   hosts: all
+  gather_facts: no
   tasks:
     - name: Disable the services
       service:
