@@ -8,7 +8,7 @@
         name: "{{ item }}"
         enabled: no
       with_items:
-      - named
+      - httpd
       ignore_errors: yes
 
     - name: Disable sockets
