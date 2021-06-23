@@ -9,6 +9,7 @@
         enabled: no
       with_items:
       - named
+      ignore_errors: yes
 
     - name: Disable sockets
       shell: systemctl disable "{{ item }}"
@@ -16,3 +17,4 @@
       - telnet.socket
       - tftp.socke
       - dhcpd.socket
+      ignore_errors: yes
