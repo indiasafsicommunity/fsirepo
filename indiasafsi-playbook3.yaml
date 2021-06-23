@@ -14,7 +14,5 @@
     - name: Disable sockets
       shell: systemctl disable "{{ item }}"
       with_items:
-      - telnet.socket
       - tftp.socket
-      - dhcpd.socket
       ignore_errors: yes
