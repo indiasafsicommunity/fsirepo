@@ -9,7 +9,7 @@
       name: "{{ item }}"
       enabled: no
       with_items:
-   - named
+      - named
 
     - name: Disable sockets
       shell: systemctl disable "{{ item }}"
