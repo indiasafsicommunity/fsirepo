@@ -5,8 +5,8 @@
   tasks:
     - name: Disable the services
       service:
-      name: "{{ item }}"
-      enabled: no
+        name: "{{ item }}"
+        enabled: no
       with_items:
       - named
 
